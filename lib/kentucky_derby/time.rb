@@ -1,0 +1,3 @@
+class KentuckyDerby::Time
+
+end

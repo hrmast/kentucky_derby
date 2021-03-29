@@ -1,13 +1,18 @@
 require "pry"
 
 class KentuckyDerby::Team
-    attr_accessor :year, :horse, :jockey, :trainer, :owner, :time
+    attr_accessor :year, :horse, :jockey, :trainer, :owner, :time, :team
 
     @@all = []
 
     def initialize(year, horse, jockey, trainer, owner, time)
-     
-        @teams = []
+        @year = year
+        @horse = horse
+        @jockey = jockey
+        @trainer = trainer 
+        @owner = owner
+        @time = time
+        add_to_year
         @@all << self
     end
 
@@ -16,12 +21,8 @@ class KentuckyDerby::Team
         @@all
     end
 
-    
-    #In order to find the number of horse wins.  I need to 
-
-    def self.triple_crown
-        if KentuckyDerby::Scraper.scrape_team.include?("Authentic")
-            puts "oh year"
-        end
+    def add_to_year
+        @year.team << self unless @year.team.include?(self)
     end
+    
 end

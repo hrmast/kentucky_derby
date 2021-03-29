@@ -1,0 +1,3 @@
+class KentuckyDerby::Owner
+
+end
