@@ -1,3 +1,0 @@
-class KentuckyDerby::Horse
-
-end

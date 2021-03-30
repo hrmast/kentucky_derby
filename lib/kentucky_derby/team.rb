@@ -12,7 +12,6 @@ class KentuckyDerby::Team
         @trainer = trainer 
         @owner = owner
         @time = time
-        add_to_year
         @@all << self
     end
 
@@ -20,9 +19,4 @@ class KentuckyDerby::Team
         KentuckyDerby::Scraper.scrape_team if @@all.empty?
         @@all
     end
-
-    def add_to_year
-        @year.team << self unless @year.team.include?(self)
-    end
-    
 end
