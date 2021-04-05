@@ -9,6 +9,7 @@ class KentuckyDerby::Year
     def initialize(year)
         @year = year
         @team = []
+        add_team
         @@all << self
     end
 
@@ -17,6 +18,6 @@ class KentuckyDerby::Year
     end
 
     def add_team
-        KentuckyDerby::Scraper.scrape_team(self) if @team.empty?
+        KentuckyDerby::Scraper.scrape_team if @team.empty?
     end
 end
