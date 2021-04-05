@@ -17,24 +17,24 @@ class KentuckyDerby::CLI
         until input == "exit"
             KentuckyDerby::Team.all.each_index do |index|
                 if KentuckyDerby::Team.all[index].year == input
-                    
                     puts "The Winners of the #{KentuckyDerby::Team.all[index].year} Kentucky Derby are: "
-
-                    puts "Horse: #{KentuckyDerby::Team.all[index].horse} - Jockey: #{KentuckyDerby::Team.all[index].jockey} - Trainer: #{KentuckyDerby::Team.all[index].trainer}"        
-
-                    puts "With a time of #{KentuckyDerby::Team.all[index].time}."
-
-                    puts "The owners of the team are #{KentuckyDerby::Team.all[index].owner}."
+                    puts "Horse: #{KentuckyDerby::Team.all[index].horse}"
+                    puts "Jockey: #{KentuckyDerby::Team.all[index].jockey}"
+                    puts "Trainer: #{KentuckyDerby::Team.all[index].trainer}"        
+                    puts "Race time: #{KentuckyDerby::Team.all[index].time}."
+                    puts "Owners: #{KentuckyDerby::Team.all[index].owner}."
                 end
             end
             puts "Please enter a new four digit year or exit."
-            input = gets.strip
-            
+            input = gets.strip 
         end
     end
 
     def good_bye
-        puts "Thank you for visiting the Kentucky Derby Information CLI, please come again."
+        puts "Thank you for visiting the Kentucky Derby Winners CLI, please come again."
     end
 
+    def valid_input(input)
+
+    end
 end
