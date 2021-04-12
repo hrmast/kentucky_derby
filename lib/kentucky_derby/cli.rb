@@ -16,7 +16,10 @@ class KentuckyDerby::CLI
         input = gets.strip
         until input == "exit"
             KentuckyDerby::Team.all.each_index do |index|
-                if KentuckyDerby::Team.all[index].year == input
+                if valid_input(input) == false
+                    puts "Invalid Entry!" 
+        
+                elsif KentuckyDerby::Team.all[index].year == input
                     puts "The Winners of the #{KentuckyDerby::Team.all[index].year} Kentucky Derby are: "
                     puts "Horse: #{KentuckyDerby::Team.all[index].horse}"
                     puts "Jockey: #{KentuckyDerby::Team.all[index].jockey}"
@@ -35,6 +38,7 @@ class KentuckyDerby::CLI
     end
 
     def valid_input(input)
-
+        input.to_i && (input.to_i > 1876 || input.to_i < (KentuckyDerby::Team.all.length + 1))
     end
+    binding.pry
 end
