@@ -13,11 +13,11 @@ class KentuckyDerby::CLI
     end
 
     def race_info
-        input = gets.strip
+        input = gets.strip.to_i
         until input == "exit"
             KentuckyDerby::Team.all.each_index do |index|
                 if valid_input(input) == false
-                    puts "Invalid Entry!" 
+                    puts "Invalid Entry! Please enter a four digit year or type exit ." 
         
                 elsif KentuckyDerby::Team.all[index].year == input
                     puts "The Winners of the #{KentuckyDerby::Team.all[index].year} Kentucky Derby are: "
@@ -29,7 +29,7 @@ class KentuckyDerby::CLI
                 end
             end
             puts "Please enter a new four digit year or exit."
-            input = gets.strip 
+            input = gets.strip.to_i
         end
     end
 
@@ -37,8 +37,10 @@ class KentuckyDerby::CLI
         puts "Thank you for visiting the Kentucky Derby Winners CLI, please come again."
     end
 
-    def valid_input(input)
-        input.to_i && (input.to_i > 1876 || input.to_i < (KentuckyDerby::Team.all.length + 1))
+    def self.valid_input(input)
+        #This needs to state that the input must be a number between 1876 to present day.
+        input.to_i && input > 1876 && input <= 2020
+
     end
     binding.pry
 end
