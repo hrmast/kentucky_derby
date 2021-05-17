@@ -13,34 +13,34 @@ class KentuckyDerby::CLI
     end
 
     def race_info
-        input = gets.strip.to_i
-        until input == "exit"
-            KentuckyDerby::Team.all.each_index do |index|
-                if valid_input(input) == false
-                    puts "Invalid Entry! Please enter a four digit year or type exit ." 
-        
-                elsif KentuckyDerby::Team.all[index].year == input
-                    puts "The Winners of the #{KentuckyDerby::Team.all[index].year} Kentucky Derby are: "
-                    puts "Horse: #{KentuckyDerby::Team.all[index].horse}"
-                    puts "Jockey: #{KentuckyDerby::Team.all[index].jockey}"
-                    puts "Trainer: #{KentuckyDerby::Team.all[index].trainer}"        
-                    puts "Race time: #{KentuckyDerby::Team.all[index].time}."
-                    puts "Owners: #{KentuckyDerby::Team.all[index].owner}."
+        input = gets.strip
+            until input == "exit"
+                if valid_input(input) == true
+                    KentuckyDerby::Team.all.each_index do |index|
+                        if KentuckyDerby::Team.all[index].year == input
+                            puts "The Winners of the #{KentuckyDerby::Team.all[index].year} Kentucky Derby are: "
+                            puts "Horse: #{KentuckyDerby::Team.all[index].horse}"
+                            puts "Jockey: #{KentuckyDerby::Team.all[index].jockey}"
+                            puts "Trainer: #{KentuckyDerby::Team.all[index].trainer}"        
+                            puts "Race time: #{KentuckyDerby::Team.all[index].time}."
+                            puts "Owners: #{KentuckyDerby::Team.all[index].owner}."
+                            puts "Please enter different four digit year or exit or type exit."
+                            input = gets.strip
+                        end
+                    end
+                else 
+                    puts "Invalid Entry! Please enter a four digit year or type exit."
+                    input = gets.strip
                 end
             end
-            puts "Please enter a new four digit year or exit."
-            input = gets.strip.to_i
-        end
     end
 
     def good_bye
         puts "Thank you for visiting the Kentucky Derby Winners CLI, please come again."
     end
 
-    def self.valid_input(input)
-        #This needs to state that the input must be a number between 1876 to present day.
-        input.to_i && input > 1876 && input <= 2020
-
+    def valid_input(input)
+        return true if input.to_i >= 1876 && input.to_i <= 2020
     end
-    binding.pry
+    #binding.pry
 end

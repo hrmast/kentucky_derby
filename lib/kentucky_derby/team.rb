@@ -1,7 +1,7 @@
 require "pry"
 
 class KentuckyDerby::Team
-    attr_accessor :year, :horse, :jockey, :trainer, :owner, :time, :team
+    attr_accessor :year, :horse, :jockey, :trainer, :owner, :time
 
     @@all = []
 

@@ -5,7 +5,6 @@ require "nokogiri"
 class KentuckyDerby::Scraper
     def self.scrape_team
         doc = Nokogiri::HTML(open("https://www.kentuckyderby.com/history/kentucky-derby-winners"))    
-        
         table = doc.at('tbody')
         table.search('tr').collect do |tr|
             year = tr.search('th, td')[0].text
@@ -14,7 +13,7 @@ class KentuckyDerby::Scraper
             trainer = tr.search('th, td')[3].text
             owner = tr.search('th, td')[4].text
             time = tr.search('th, td')[5].text
-        KentuckyDerby::Team.new(year, horse, jockey, trainer, owner, time)
+            KentuckyDerby::Team.new(year, horse, jockey, trainer, owner, time)
         end
     end  
 end     
