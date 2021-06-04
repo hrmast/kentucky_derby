@@ -19,4 +19,6 @@ class KentuckyDerby::Team
         KentuckyDerby::Scraper.scrape_team if @@all.empty?
         @@all
     end
+
+    
 end

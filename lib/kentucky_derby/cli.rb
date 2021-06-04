@@ -40,7 +40,7 @@ class KentuckyDerby::CLI
     end
 
     def valid_input(input)
-        return true if input.to_i >= 1876 && input.to_i <= 2020
+        return true if input.to_i >= 1876 && input.to_i <= KentuckyDerby::Team.all[0].year.to_i
+        
     end
-    #binding.pry
 end
