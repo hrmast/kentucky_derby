@@ -10,7 +10,6 @@ class KentuckyDerby::CLI
     def welcome
         puts "Welcome to the Kentucky Derby Winners CLI!"
         puts "Please enter a four digit year to see the race winners information."
-        test
     end
 
     def race_info
