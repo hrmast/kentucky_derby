@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Heath Mast"]
   spec.email         = ["hrmast@gmail.com"]
 
-  spec.summary       = "The Kentucky Derby gem allows ."
+  spec.summary       = "The Kentucky Derby gem is used to find the winners of each derby race dating back to the beginning of the race."
   spec.description   = "TODO: Write a longer description or delete this line."
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
