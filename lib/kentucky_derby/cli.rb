@@ -18,14 +18,18 @@ class KentuckyDerby::CLI
                 if valid_input(input) == true
                     KentuckyDerby::Team.all.each_index do |index|
                         if KentuckyDerby::Team.all[index].year == input
-                            puts "The Winners of the #{KentuckyDerby::Team.all[index].year} Kentucky Derby are: "
-                            puts "Horse: #{KentuckyDerby::Team.all[index].horse}"
-                            puts "Jockey: #{KentuckyDerby::Team.all[index].jockey}"
-                            puts "Trainer: #{KentuckyDerby::Team.all[index].trainer}"        
-                            puts "Race time: #{KentuckyDerby::Team.all[index].time}."
-                            puts "Owners: #{KentuckyDerby::Team.all[index].owner}."
-                            puts "Please enter different four digit year or exit or type exit."
-                            input = gets.strip
+                                puts "The Winners of the #{KentuckyDerby::Team.all[index].year} Kentucky Derby are: "
+                                    if KentuckyDerby::Team.all[index].horse.include?("  *") == true
+                                        puts "Horse: #{KentuckyDerby::Team.all[index].horse} Triple Crown Winner *"
+                                    else
+                                        puts "Horse: #{KentuckyDerby::Team.all[index].horse}" 
+                                    end
+                                puts "Jockey: #{KentuckyDerby::Team.all[index].jockey}"
+                                puts "Trainer: #{KentuckyDerby::Team.all[index].trainer}"      
+                                puts "Race time: #{KentuckyDerby::Team.all[index].time}."
+                                puts "Owners: #{KentuckyDerby::Team.all[index].owner}."
+                                puts "Please another four digit year or exit or type exit."
+                                input = gets.strip
                         end
                     end
                 else 
@@ -43,4 +47,8 @@ class KentuckyDerby::CLI
         return true if input.to_i >= 1876 && input.to_i <= KentuckyDerby::Team.all[0].year.to_i
         
     end
+
+    def triple_crown(horse)
+        puts "Triple Crown Winner" if horse.include("*")
+    end 
 end
